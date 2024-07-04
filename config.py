@@ -1,4 +1,4 @@
-USER = 'saragagg'
+USER = '*insert your username here*'
 HOST = 'localhost'
-PASSWORD = 'Wreckingball96!'
+PASSWORD = '*insert your password here*'
 DATABASE = 'CFGDrums'
