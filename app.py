@@ -22,10 +22,5 @@ def register_new_student():
 
     register_student(student['name'], student['surname'], student['email'], student['phone'], student['disability_req'])
 
-
-
-
-
-
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
