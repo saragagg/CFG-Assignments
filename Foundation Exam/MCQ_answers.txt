@@ -1,0 +1,43 @@
+MULTIPLE CHOICE QUESTIONS - Section One:
+
+Q1.
+B
+
+Q2.
+C
+
+Q3.
+D
+
+Q4.
+C
+
+Q5.
+B
+
+Q6.
+B
+
+Q7.
+B
+
+Q8.
+A
+
+Q9.
+B
+
+Q10.
+A
+
+CODING EVALUATION - Section Two:
+
+Line 8 - We should not include "OR department_name = NULL" as part of our subquery as the healthcare authority only aims to view patient's data from the cardiology department
+Line 12 - We are limiting our query to only return the first row, so the one patient with the highest number of admissions from January 2015 onwards. As the healthcare authority wants to indentify patientS with the highest number of admissions, we would have to increase the number in the LIMIT Clause
+
+Suggestion -
+Limit the code to 5 to display the 5 patients with the highest number of admissions -
+Use a Self Join, joining the table with itself. Selecting the patient_id and the count(patient_id) where patient_id = patient_id
+For better performance:
+ - avoid using the wildcart and use patient_id or patient_name instead
+ - avoid subquery in our main query to the db, we could potentially query the database to retrieve the cardiology department's ID in a separate query and store it in a variable. Being the department's unique identifier, it will be useful to store it in a variable in case we want to use it in future queries 

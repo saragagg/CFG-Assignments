@@ -1,0 +1,100 @@
+1.1 Explain the difference between a primary key and a foreign key. 2 marks
+
+- Both of them are SQL constraints types, therefore rules that we can apply on the type of data in a table.
+
+- We can have only one primary key in a table, while we can have multiple foreign keys referencing primary keys
+
+- The table containing the referenced primary key can called Parent table, while the table where we add the referencing foreign key can be called Child table. This gives us an idea of the relationship we are creating in the DB
+
+- A primary key is used as a unique identifier for each record in a database table. A foreign key is used to create a relationship between two tables. We add a foreign key to a table referencing another.
+
+- Primary key Must contain a unique value while foreign key can have duplicate values in a db
+
+- Primary key MUST be NOT NULL while foreign key can contain null values
+
+- We need to pay extra attention to primary key’s behaviour on delete as we could lose data integrity of the data in a child table (the table where we add a foreign key). When we delete a particular row in the main table, we need to have a way to keep data integrity otherwise the database management system will throw an error and won’t allow us to delete the specific row. Foreign keys can be deleted from the child table.
+
+
+1.2 What is the role of the `finally` block in Python exception handling and how would you use it. 2 marks
+
+The ‘finally’ block is the final part of the “try/except” block which tries to execute X code (try), does something else if the execution of X code raised an exception (except), execute another bit of Y code if no exception were raised and the X code in the try block executed successfully (else) and executes a Z code regardless the code in the try block raised error/exceptions or not (finally). Therefore we can say that the “finally” block is part of the try block in python that contains code that will always be executed, whether the code in the try block raised some errors or not. It must be at the end of the try/except block and gets executed before any returns in the function. It is not mandatory, but can be very helpful.
+
+It is a good way to end the function/code in case we need to do some clean-up before the try/except. An instance could be closing a file or a connection to a database, like we have seen in preparation for assignment 4-
+
+The finally block will always be executed despite any returns or break in the try/except/else block.
+
+1.3 Explain the difference between a commit and a push in Git. 2 marks
+
+git commit – used to save the changes in our local repository after adding them to the staging area (using the command git add). You can tell which file you want to commit before the command or you can commit all. It takes a commit message used to explain the changes you are saving
+
+Git push – used to upload all your committed changes to a remote repository. This is the point we create the connection from the local repo with the remote repository.
+
+
+1.4 Provide examples of two web APIs and describe their functionalities 4 marks
+
+- Channel messaging API: It is an api that allows the communication between two separate scripts running in different browsing contexts attached to the same document. Messages are passed from one script to another via two-way channels with a port at each end.
+The constructor MessageChannel is used to create a message channel and we can access the two ports of the channel using the properties MessageChannel.port1 – used by the app that created the channel and MessageChannel.port2 – used by the app at the other end, which will return objects. We use window.postMessage with the message to send and the object to transfer ownership of as arguments. ‘onmessage’ keyword is used to listen for the message to be received. MessagePort.postMessage can then be used to respond “back” to the original document.
+Finally, when you are done sending messages and are ready to close the ports, you can use MessagePort.close.
+
+ref(https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API?source=post_page-----8e43905cbdc5--------------------------------)
+
+
+- Payment Request API: It is an API that allows users(buyers) to choose a preferred way of making payments and make the selection info available to a merchant and making the checkout process more accessible for users. If we think about how much we use online payments nowadays, we can understand the importance of such API.
+A web page creates a PaymentRequest object I, which creates and manages the user agent’s payment interface (let’s think about the “Purchase now” button on Amazon). The request will then be updated with PaymentRequestUpdateEvent, which allows the web page to update the payment request’s detail reflecting the  user action.
+The request can be updated using PaymentMethodChangeEvent, in case the user decides to change payment method and finally, once the user selects a payment method and approves a payment request the PaymentResponse object is returned (which could contain error handling such as unsuccessful transaction).
+It is important to consider the presence of MerchantValidationEvent, which reflects the browser asking the merchant (ecommerce, website..) to validate their permission to use a payment handler).
+
+source(https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API?source=post_page-----8e43905cbdc5--------------------------------)
+
+
+1.5 Describe four tasks in the role of the Product Owner in Agile development 4 marks
+
+Connecting with the customer, Contributing to the vision and roadmap, manage and prioritises the team backlog, supports the team in delivering value, getting and applying feedback
+
+The Product Owner is the Agile team member primarily responsible for maximizing the value delivered by the team by ensuring that the team backlog is aligned with customer and stakeholder needs.
+
+
+
+
+1.6 Name two types of SQL joins and provide an example scenario for each. 4 marks
+
+- INNER JOIN (or simply JOIN) – Return records from a database that have matching values in both table.
+
+Example: We have a table1 instructors and table2 classes
+
+SELECT instructors.name, classes.name
+FROM instructors
+INNER JOIN instructors
+ON instructors.instructor_id = classes.instructor_id;
+
+This will match all instructors with the classes they teach.
+
+
+- LEFT JOIN – Will return all records from the left table/table1 plus the existing matched records from the right table/table to
+
+Example: We have a table1 accounts and a table2 orders
+
+SELECT accounts.name, orders.purchased_idem
+FROM accounts
+LEFT JOIN orders
+ON accounts.account_id = orders.account_id;
+
+Will display all the accounts (buyers) and the purchased items, will insert null if the account has not purchased an item yet
+
+
+1.7 Explain the difference between mutable and immutable data types in Python, provide an example of each. 4 marks
+
+Mutable data types are data types that can be changed after they have been defined/created. Examples of mutable data type in python are lists, dictionaries and sets.
+They will keep the same memory location after the content is modified, which makes them memory efficient.
+The perfect use for these data types is situations where you know you will need to alter the existing data frequently.
+
+Immutable data types are the exact opposite, once they have been created their value can’t be changed or altered. Examples of mutable data types are strings, integers or tuples.
+Alterations and changes to these data types will cause a new memory location. It can be faster to work with them as there is no need to track alterations.
+The perfect use for these data types is instances in which you need to ensure the data remains consistent and unchanged.
+
+
+1.8 Explain both Agile and Waterfall approaches to Software Development, and at least 2 differences between them 4 marks
+
+Agile Software Development: type of software development open to adaptation and which encourages developers to experiment and change direction if needed (even at later phases of the project). It is more flexible. The schedule of an agile team adapts to the project progression. Great for teams that need to move fast on a project and want to promote collaboration. Business owners or stakeholders are involved frequently to discuss progresses
+
+Waterfall Software Development: it is a very linear type of software development. The software project is planned ahead of time It follows specific steps once the end goal is established and it has a fixed timeline. It is less flexible than the Agile sd and each step needs to be fully completed before moving to the next one. Great for project which require strict regulations and requirements.
