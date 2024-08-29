@@ -1,0 +1,29 @@
+'''
+Design a basic hash function, keeping in mind memory constraints
+and how you would deal with hash collisions.
+
+Walkthrough your function with an example where there is no hash
+collision.
+
+Walkthrough your function with an example of a hash collision
+'''
+
+A basic hash function could be the following where 5 is the length of the hash table we want to store the numbers in. Originally [None, None, None, None, None]
+
+def hash_num(n):
+    return n % 5
+
+No Hash Collision - [12, 23, 10, 14, 41] this will result in populating the entire
+hash_num(12) returns 2 so we'll allocate 12 at the index 2 in our hash table
+hash_num(23) returns 3 so we'll allocate 23 at the index 3 in our hash table
+hash_num(10) returns 0 so we'll allocate 10 at the index 0 in our hash table
+hash_num(14) returns 4 so we'll allocate 14 at the index 4 in our hash table
+hash_num(41) returns 1 so we'll allocate 41 at the index 1 in our hash table
+
+Hash Collision -
+This basic hash function would easily end up in collision as different numbers might return the same number(n % 5)
+Example:
+hash_num(24) returns 4
+hash_num(14) returns 4
+
+In this case we would have a case of collision at index 4 of our hash table. A common way to handle it would be to use a bigger number than the size of the hash table for our function and potentially look for the first available spot in the hash key to store our element.
