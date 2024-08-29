@@ -1,0 +1,69 @@
+1.1 The deque module is part of which python library?
+
+The deque module is part of python collections library. It stands for 'Doubly Ended Queue' and it is the optimised list for faster pop and append operations from both sides of the container. Elements in deque can be inserted or removed from both sides (righ and left/ front and end) using the following methods:
+- append() method (inserting elements to the right)
+- appendleft() method (inserting elements to the left)
+- pop() method (removing from the right)
+- popleft() method (removing from the left)
+Other useful methods of the deque module include the clear() method which will remove all elements from deque setting the length to 0.
+
+
+1.2 What are 2 differences that distinguish a tree from a graph?
+
+1st. Trees are types of data structures that represent nodes connected by edges. Each tree consists of a single root node as the Parent node, and the left node and right node as Child nodes. Trees have levels and they are perfect to store hierarchical relationships. On the other side, a graph is a data structure, without a root node nor hierarchical structure,where each node (also called vertices) can have links to more than one node. Nodes/vertices are connected to each others by links called edges and they are perfect to represent many-to-many type of relationship, for example multiple friendships between people profiles in a social media.
+
+2nd. In trees, any two nodes are connected by only one path while in graphs two nodes can be connected by multiple edges or not connected at all.
+
+they can't have cycles - nodes can't reference each other circularly
+Nodes must be connected
+
+
+1.3 Give the definitions of time complexity and space complexity
+
+Time and space complexity are the primary factors in the process of determining how efficient an algorithm is. In simple words, they are used to assess the performance of an algorithm.
+
+Time complexity is a measure of how fast an algorithm runs to solve a given problem, where the time to run is not the actual execution time of the machine the algorithm is running on, but a function of the length of the input.
+
+Space complexity is a measure of how much memory an algorithm takes up to solve a given problem.
+
+Both time and space complexity are expressed using Big O notation. The variables used in Big O notation (for example 0(n^2)) describes the sizes of inputs to algorithms.
+
+
+1.4 Describe the bubble sort algorithm and its complexity. What is guaranteed at the end of the first pass?
+
+Bubble sort is a sorting algorithms that works by comparing and swapping adjacent elements in repetition if they are in the wrong order. This algorithm will compare adjacent elements starting from left and place the higher element to the right until the data is sorted.
+A full run of comparisons in a dataset is called a pass. A bubble sort algorithm terminates when there are no more swaps to make to sort the dataset and it might require more than one pass to complete the sorting.
+
+It is guaranteed, at the end of the first pass, that the first and second element of a dataset will be sorted.
+
+Bubble sort complexity:
+For example in
+Its space complexity is O(1) as the amount of memory during the sorting process is constant.
+
+Its time complexity is O(n) in the best case, imagine applying the algorithm to a dataset already sorted, therefore the amount of comparison is n-1 and the amount of swaps required is 0.
+Its time complexity in the worst case is O(n^2), imagine applying the algorithm to a dataset sorted in decreasing order. In this case, the algorithm requires as many swaps as comparisons.
+
+Considering its high time complexity, it is not suitable for large data sets.
+
+
+1.5 Explain what LIFO and FIFO are and how each works in practice with a named data structure
+
+LIFO (stands for Last In First Out) and FIFO (stands for First In First Out) are principles used to handle data structures such as collection of objects (named stack where LIFO is used and queue where FIFO is used).
+
+In a stack, objects are inserted and removed according to the LIFO principle, where the first element inserted is processed last and the last element inserted is processed first. Using the push(x) method, an element x is added at the top of the stack (which can be referenced using the top() method) and using the pop() method the most top element is removed from the stack once processed.
+This collection provides a method empty() to check if the stack is empty or not.
+A simple example could be a stack of clean plates. Once we are done washing the plates, we stack one plate on top of each other and when we need one, we'll grab the top one which is the last added to the pile of plates.
+It is important to notice that insertion and deletion on the same end of the stack, following the LIFO principle.
+
+In a queue, objects are inserted and removed according to the FIFO principle, where the first element inserted is processed first and the last element to be inserted is processed last.
+To add an item to the queue use the enqueue() method, which will add an element to the end of queue. Imagine and individual joining the back of the line at a supermarket till - he will be served last as he's the last arrived.
+To remove an element from the front of the queue once processed, we use the dequeue() method - the first person arrived in the queue will be served first.
+It provides the isEmpty() and idFull() method to check whether the queue is empty or full.
+Insertion and deletion happen on different end of the queue following the FIFO principle, as an element is inserted to the left and deleted from the right.
+
+
+1.6 What is a Balanced Binary Tree and what would be the best root? Walkthrough how you search using this structure.
+
+A binary tree is data structure that store data in a hierarchic order. It's made up of nodes connected by edges and each node can have a maximum of two child nodes (a left child node and a right child node). A binary tree is Balanced when has a maximum of 1 in the difference between its left and right subtrees' heights for each node in the tree. The best root for a balanced binary tree would be the a middle value/element of a list, to then proceed to add the values smaller than the middle value to the left subtree and the values bigger than the middle value to the right subtree.
+
+To search an element in a balanced binary tree, we need to start from the root and traverse all of its subtrees until we find the element we are looking for. In fact, in the worst case we need to traverse the entire depth of the tree (i.e. element not existing in the tree or element existing in one of the last subtrees)
